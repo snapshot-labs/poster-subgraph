@@ -4,3 +4,11 @@ type Post @entity {
   content: String!
   timestamp: Int!
 }
+
+type Action @entity {
+  id: ID!
+  user: Bytes!
+  type: String!
+  target: String!
+  timestamp: Int!
+}
