@@ -1,0 +1,6 @@
+type Post @entity {
+  id: ID!
+  user: Bytes!
+  content: String!
+  timestamp: Int!
+}

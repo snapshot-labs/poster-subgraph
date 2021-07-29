@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+description: Poster subgraph
+repository: https://github.com/snapshot-labs/poster-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Poster
+    network: goerli
+    source:
+      address: '0xA0c7A49916Ce3ed7dd15871550212fcc7079AD61'
+      abi: Poster
+      startBlock: 5221325
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Post
+      abis:
+        - name: Poster
+          file: ./abis/Poster.json
+      eventHandlers:
+        - event: NewPost(indexed address,string)
+          handler: handleNewPost
+      file: ./src/mapping.ts
